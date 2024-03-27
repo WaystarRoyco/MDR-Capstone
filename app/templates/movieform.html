@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body %}
+<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
+
+<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
+<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
+
+<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
+        <h1>Log a movie!</h1>
+
+        <div class="text-center">
+
+        
+        <form method=post>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.title.label }} <br>
+                {{ form.title(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.title.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.director.label }} <br>
+                {{ form.director(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.director.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                Add your rating here <br>
+                {{ form.rating(cols=64, rows=10) }}
+                <!--List the errors for this field-->
+                {% for error in form.rating.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+             <p>
+
+
+                {{form.submit()}}
+            </p>
+        </form>
+    </div>
+       
+{% endblock %}

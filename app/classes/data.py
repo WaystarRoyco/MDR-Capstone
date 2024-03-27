@@ -35,11 +35,24 @@ class User(UserMixin, Document):
     adult_lname = StringField()
     adult_email = StringField()
     consent = BooleanField(default=False)
+    role = StringField()
 
     meta = {
         'ordering': ['lname','fname']
     }
 
+class Movie(Document):
+    author= ReferenceField('User', reverse_delete_rule=CASCADE)
+    title=  StringField()
+    director = StringField()
+    rating = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+    
 class Sleep(Document):
     sleeper = ReferenceField('User',reverse_delete_rule=CASCADE)
     rating = IntField()

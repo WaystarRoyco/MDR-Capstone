@@ -14,6 +14,13 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
+    role = SelectField('Role', choices=[("VIP","VIP"),("Normal User","Normal User")])
+
+class MovieForm(FlaskForm):
+    title = StringField("Title", validators=[DataRequired()])
+    director = StringField("Director", validators=[DataRequired()])
+    rating = StringField("Rating", validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 class ConsentForm(FlaskForm):
     adult_fname = StringField('First Name',validators=[DataRequired()])
